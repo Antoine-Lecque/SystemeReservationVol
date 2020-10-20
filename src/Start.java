@@ -36,6 +36,7 @@ public class Start {
 		vol.ouvrir();
 		vol.fermer();
 
+    //affichage du vol 
 		System.out.println(vol.toString());
 	}
 }
