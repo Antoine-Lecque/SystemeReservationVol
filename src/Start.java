@@ -36,6 +36,7 @@ public class Start {
 
 		vol.ouvrir();
 
+    //affichage du vol 
 		System.out.println(vol.toString());
 
 		//Création d'un client et des passagers
