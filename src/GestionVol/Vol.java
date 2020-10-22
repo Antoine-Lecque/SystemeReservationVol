@@ -5,7 +5,7 @@ import java.time.ZonedDateTime;
 import java.util.ArrayList;
 
 public class Vol{
-	private String numero;
+    private String numero;
 
 	private ZonedDateTime dateDepard;
 	private ZonedDateTime dateArrivee;
@@ -15,7 +15,7 @@ public class Vol{
 	private Aeroport arrivee;
 	private ArrayList<Escale> escales;
 
-	public boolean etatReservation;
+	public boolean etatVol;
 
 	public Vol (String numero, ZonedDateTime dateDepard, ZonedDateTime dateArrivee, Aeroport depard, Aeroport arrivee){
 		this.numero = numero;
@@ -30,20 +30,29 @@ public class Vol{
 	}
 
 	public void ouvrir(){
-		this.etatReservation = true;
+		this.etatVol = true;
 	}
 
 	public void fermer(){
-		this.etatReservation = false;
+		this.etatVol = false;
 	}
 
 	public void ajouterEscale (Escale e) {
 		this.escales.add(e);
 	}
 
+	public boolean getEtat() {
+		return etatVol;
+	}
+
+	public String getNumero() {
+		return numero;
+	}
+
 	@Override
 	public String toString() {
 		String sRet = "";
+
 		sRet += "|------ VOL ------" + '\n';
 		sRet += "| Numero : " + this.numero + '\n';
 		sRet += "| \n";
@@ -59,7 +68,7 @@ public class Vol{
 		sRet += "| \n";
 		sRet += "| Duree : " + this.duree.toString() + '\n';
 		sRet += "| \n";
-		sRet += "| Etat de la reservation : " + this.etatReservation + '\n';
+		sRet += "| Etat du vol : " + this.etatVol + '\n';
 		return sRet;
 	}
 }
