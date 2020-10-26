@@ -2,20 +2,24 @@ package GestionVol;
 
 import java.time.Duration;
 import java.time.ZonedDateTime;
+import java.time.temporal.TemporalAmount;
 import java.util.ArrayList;
 
 public class VolRegulier {
-    private Aeroport depart;
-    private Aeroport arrivee;
-    private ArrayList<Escale> escales;
-
-    public VolRegulier (Aeroport depard, Aeroport arrivee, ArrayList<Escale> escales){
-        this.depart = depard;
-        this.arrivee = arrivee;
-        this.escales = escales;
+    public VolRegulier (){
     }
 
-    public Vol creerVol (ZonedDateTime dateDepard, ZonedDateTime dateArrivee) {
-        return new Vol(dateDepard, dateArrivee, this.depart, this.arrivee);
+    public static Vol creerVol (Vol vol,ZonedDateTime depart) {
+        Duration diff = Duration.between(vol.getDateDepard(), depart);
+        ZonedDateTime dateDepard =  depart;
+        ZonedDateTime dateArrivee = vol.getDateArrivee().plus(diff);
+
+        Vol nouveauVol = new Vol(dateDepard, dateArrivee, vol.getDepart(), vol.getArrivee());
+
+        for(Escale e : vol.getEscales() ){
+            nouveauVol.ajouterEscale(e.escalePlusDiff(diff));
+        }
+
+        return nouveauVol;
     }
 }

@@ -33,8 +33,9 @@ public class Start {
 		Aeroport arrivee = new Aeroport("AeroArr");
 		arrivee.ajouterVille(new Ville("Berlin"));
 
-		ZonedDateTime dateArrivee = ZonedDateTime.of(2020, 10, 20, 8, 0, 0, 0, zoneId);
-		ZonedDateTime dateDepard = ZonedDateTime.of(2020, 10, 20, 22, 0, 0, 0, zoneId);
+
+		ZonedDateTime dateDepard = ZonedDateTime.of(2020, 10, 20, 8, 0, 0, 0, zoneId);
+		ZonedDateTime dateArrivee = ZonedDateTime.of(2020, 10, 20, 22, 0, 0, 0, zoneId);
 		Vol vol = new Vol(dateDepard, dateArrivee, depard, arrivee);
 
 		comp1.ajouterVol(vol);
@@ -69,5 +70,11 @@ public class Start {
 		System.out.println(r3);
 
 		// Vol réguliers :
+		ZonedDateTime d1 = ZonedDateTime.of(2020, 10, 26, 10, 0, 0, 0, zoneId);
+		ZonedDateTime d2 = ZonedDateTime.of(2020, 10, 27, 10, 0, 0, 0, zoneId);
+		Vol vol2 = VolRegulier.creerVol(vol,d1);
+		Vol vol3 = VolRegulier.creerVol(vol,d2);
+		System.out.println(vol2.toString());
+		System.out.println(vol3.toString());
 	}
 }

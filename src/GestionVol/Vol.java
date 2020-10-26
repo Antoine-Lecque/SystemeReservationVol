@@ -42,6 +42,7 @@ public class Vol{
 		this.escales.add(e);
 	}
 
+
 	public boolean getEtat() {
 		return etatVol;
 	}
@@ -50,6 +51,19 @@ public class Vol{
 		return numero;
 	}
 
+	public Aeroport getDepart() {return this.depart; }
+
+	public Aeroport getArrivee() { return this.arrivee; }
+
+	public Duration getDuree() { return this.duree; }
+
+	public ZonedDateTime getDateDepard() { return this.dateDepard; }
+
+	public ZonedDateTime getDateArrivee() { return this.dateArrivee; }
+
+	public ArrayList<Escale> getEscales () { return this.escales; }
+
+
 	@Override
 	public String toString() {
 		String sRet = "";
@@ -57,11 +71,11 @@ public class Vol{
 		sRet += "|------ VOL ------" + '\n';
 		sRet += "| Numero : " + this.numero + '\n';
 		sRet += "| \n";
-		sRet += "| Aeroport d'arrivee : " + this.arrivee.toString() + '\n';
-		sRet += "| Date d'arrivee : " + this.dateArrivee.toString() + '\n';
-		sRet += "| \n";
-		sRet += "| Aeroport de depard : " + this.depart.toString() + '\n';
+		sRet += "| Aeroport de depard : " + this.depart.toString();
 		sRet += "| Date de depard : " + this.dateDepard.toString() + '\n';
+		sRet += "| \n";
+		sRet += "| Aeroport d'arrivee : " + this.arrivee.toString();
+		sRet += "| Date d'arrivee : " + this.dateArrivee.toString() + '\n';
 		sRet += "| \n";
 		for (Escale e : escales) {
 			sRet += e.toString();

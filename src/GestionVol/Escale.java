@@ -9,7 +9,7 @@ public class Escale {
     private ZonedDateTime arrivee;
     private Duration duree;
 
-    public Escale (Aeroport aeroport, ZonedDateTime depard, ZonedDateTime arrivee) {
+    public Escale (Aeroport aeroport, ZonedDateTime arrivee, ZonedDateTime depard) {
         this.aeroport = aeroport;
         this.arrivee = arrivee;
         this.depard = depard;
@@ -17,11 +17,15 @@ public class Escale {
         this.duree = Duration.between(depard, arrivee);
     }
 
+    public Escale escalePlusDiff(Duration diff) {
+        return new Escale(this.aeroport, this.arrivee.plus(diff),this.depard.plus(diff));
+    }
+
     @Override
     public String toString() {
         String sRet = "";
         sRet += "| |------ ESCALE ------|" + '\n';
-        sRet += "| |Aeroport : " + this.aeroport + '\n';
+        sRet += "| |Aeroport : " + this.aeroport;
         sRet += "| | \n";
         sRet += "| | Date d'arrivee : " + this.arrivee.toString() + '\n';
         sRet += "| | \n";
