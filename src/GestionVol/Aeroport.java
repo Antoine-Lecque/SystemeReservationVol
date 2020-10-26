@@ -1,7 +1,5 @@
 package GestionVol;
 
-import Reservation.Reservation;
-
 import java.util.ArrayList;
 
 public class Aeroport {

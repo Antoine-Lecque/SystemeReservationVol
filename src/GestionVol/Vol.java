@@ -68,7 +68,7 @@ public class Vol{
 	public String toString() {
 		String sRet = "";
 
-		sRet += "|------ VOL ------" + '\n';
+		sRet += "|------------------------- VOL -------------------------|" + '\n';
 		sRet += "| Numero : " + this.numero + '\n';
 		sRet += "| \n";
 		sRet += "| Aeroport de depard : " + this.depart.toString();
@@ -77,8 +77,11 @@ public class Vol{
 		sRet += "| Aeroport d'arrivee : " + this.arrivee.toString();
 		sRet += "| Date d'arrivee : " + this.dateArrivee.toString() + '\n';
 		sRet += "| \n";
+		int i=0;
 		for (Escale e : escales) {
+			sRet += "| |------ ESCALE "+ ++i +" ------|" + '\n';
 			sRet += e.toString();
+			sRet += "| |\n";
 		}
 		sRet += "| \n";
 		sRet += "| Duree : " + this.duree.toString() + '\n';

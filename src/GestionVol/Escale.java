@@ -17,6 +17,8 @@ public class Escale {
         this.duree = Duration.between(depard, arrivee);
     }
 
+    // Retourne une instance d'Escale avec le meme aeroport
+    // et avec une date d'arrivee et de depart decalé de la durée diff
     public Escale escalePlusDiff(Duration diff) {
         return new Escale(this.aeroport, this.arrivee.plus(diff),this.depard.plus(diff));
     }
@@ -24,7 +26,6 @@ public class Escale {
     @Override
     public String toString() {
         String sRet = "";
-        sRet += "| |------ ESCALE ------|" + '\n';
         sRet += "| |Aeroport : " + this.aeroport;
         sRet += "| | \n";
         sRet += "| | Date d'arrivee : " + this.arrivee.toString() + '\n';

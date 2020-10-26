@@ -1,13 +1,13 @@
 package Reservation;
 
-import GestionVol.Escale;
 import GestionVol.Vol;
 
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Client {
+    private static int num;
+
     private String nom;
     private String reference;
     private String paiment;
@@ -15,8 +15,13 @@ public class Client {
 
     private ArrayList<Reservation> reservations;
 
-    public Client (String nom) {
-        this.nom = nom;
+    public Client (String nom, String paiment, String contact) {
+        this.reference = "CLIENT"+ ++num;
+
+        this.nom     = nom;
+        this.paiment = paiment;
+        this.contact = contact;
+
         this.reservations = new ArrayList<Reservation>();
     }
 

@@ -2,13 +2,8 @@ package GestionVol;
 
 import java.time.Duration;
 import java.time.ZonedDateTime;
-import java.time.temporal.TemporalAmount;
-import java.util.ArrayList;
 
 public class VolRegulier {
-    public VolRegulier (){
-    }
-
     public static Vol creerVol (Vol vol,ZonedDateTime depart) {
         Duration diff = Duration.between(vol.getDateDepard(), depart);
         ZonedDateTime dateDepard =  depart;
