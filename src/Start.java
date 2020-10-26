@@ -71,7 +71,7 @@ public class Start {
 		Reservation r1 = client.reserver(vol1, passager1);
 
 		System.out.println("--------------------------------------------------------------");
-		System.out.println("Affichage des reservation et test état des reservations");
+		System.out.println("Affichage des reservations et test état des reservations");
 		System.out.println("--------------------------------------------------------------");
 		System.out.println(client.toString());
 		r1.confirmer();
@@ -92,7 +92,7 @@ public class Start {
 		Vol vol2 = VolRegulier.creerVol(vol1,d1);
 		Vol vol3 = VolRegulier.creerVol(vol1,d2);
 		System.out.println("---------------------------------------------------");
-		System.out.println("Affichage des vol réguliers créé a partir de VOL1");
+		System.out.println("Affichage des vols réguliers créés a partir de VOL1");
 		System.out.println("---------------------------------------------------");
 		System.out.println(vol2.toString());
 		System.out.println(vol3.toString());
