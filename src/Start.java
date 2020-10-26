@@ -11,7 +11,14 @@ public class Start {
 
 		// Création de l'escale
 		Aeroport aeroEscale = new Aeroport("AeroEscale");
-		aeroEscale.ajouterVille(new Ville("Amsterdam"));
+		Ville v = new Ville("Amsterdam");
+		//vérification que la double navigabilité entre ville et aéroport ne crée pas de boucle.
+		aeroEscale.ajouterVille(v);
+		System.out.println(v.toString());
+		System.out.println(aeroEscale.toString());
+		v.ajouterAeroport(aeroEscale);
+		System.out.println(v.toString());
+		System.out.println(aeroEscale.toString());
 
 		ZoneId zoneId = ZoneId.of("UTC+1");
 		ZonedDateTime arrEscale = ZonedDateTime.of(2020, 10, 20, 18, 0, 0, 0, zoneId);
@@ -28,7 +35,7 @@ public class Start {
 
 		ZonedDateTime dateArrivee = ZonedDateTime.of(2020, 10, 20, 8, 0, 0, 0, zoneId);
 		ZonedDateTime dateDepard = ZonedDateTime.of(2020, 10, 20, 22, 0, 0, 0, zoneId);
-		Vol vol = new Vol("VOL1", dateDepard, dateArrivee, depard, arrivee);
+		Vol vol = new Vol(dateDepard, dateArrivee, depard, arrivee);
 
 		comp1.ajouterVol(vol);
 
@@ -36,7 +43,7 @@ public class Start {
 
 		vol.ouvrir();
 
-    //affichage du vol 
+		//affichage du vol
 		System.out.println(vol.toString());
 
 		//Création d'un client et des passagers
@@ -60,5 +67,7 @@ public class Start {
 		vol.fermer();
 		Reservation r3 = client.reserver(vol, passager3);
 		System.out.println(r3);
+
+		// Vol réguliers :
 	}
 }

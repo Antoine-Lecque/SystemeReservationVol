@@ -5,6 +5,7 @@ import java.time.ZonedDateTime;
 import java.util.ArrayList;
 
 public class Vol{
+	private static int num;
     private String numero;
 
 	private ZonedDateTime dateDepard;
@@ -17,8 +18,8 @@ public class Vol{
 
 	public boolean etatVol;
 
-	public Vol (String numero, ZonedDateTime dateDepard, ZonedDateTime dateArrivee, Aeroport depard, Aeroport arrivee){
-		this.numero = numero;
+	public Vol (ZonedDateTime dateDepard, ZonedDateTime dateArrivee, Aeroport depard, Aeroport arrivee){
+		this.numero = "VOL"+ ++num;
 
 		this.dateArrivee = dateArrivee;
 		this.dateDepard = dateDepard;

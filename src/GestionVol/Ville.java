@@ -1,7 +1,6 @@
 package GestionVol;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 public class Ville {
     private String nom;
@@ -14,6 +13,29 @@ public class Ville {
     }
 
     public void ajouterAeroport (Aeroport a){
-        this.aeroports.add(a);;
+        if (!countains(a)) {
+            this.aeroports.add(a);
+        }
+
+        if (!a.countains(this)) {
+            a.ajouterVille(this);
+        }
+    }
+
+    public boolean countains(Aeroport a) {
+        return this.aeroports.contains(a);
+    }
+
+    public String getNom (){
+        return this.nom;
+    }
+
+    public String toString() {
+        String sRet = "";
+        for (Aeroport a : aeroports) {
+            sRet += a.getNom();
+            sRet += '\n';
+        }
+        return sRet;
     }
 }
